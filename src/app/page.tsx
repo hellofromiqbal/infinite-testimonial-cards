@@ -78,8 +78,6 @@ const testimonials = [
 ];
 
 export default function Home() {
-  const theme = useTheme();
-
   // Function to get the custom order of testimonial indexes
   const getOrderedIndexes = (testimonials: Testimonial[]) => {
     const totalTestimonials = testimonials.length;
