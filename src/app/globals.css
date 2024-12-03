@@ -40,3 +40,29 @@ a {
     color-scheme: dark;
   }
 }
+
+@keyframes slide-left {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slide-right {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.slide-left {
+  animation: slide-left 0.5s ease-out;
+}
+
+.slide-right {
+  animation: slide-right 0.5s ease-out;
+}
