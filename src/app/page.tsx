@@ -178,6 +178,8 @@ export default function Home() {
           paddingY: 4,
           gap: 4,
         }}
+        onTouchStart={handleTouchStart}
+        onTouchEnd={handleTouchEnd}
       >
         {testimonialIndexes.map((index) => (
           <Paper
