@@ -103,6 +103,7 @@ export default function Home() {
   // Whenever testimonials change, update the testimonialIndexes
   useEffect(() => {
     setTestimonialIndexes(getOrderedIndexes(testimonials));
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [testimonials]);
 
   const goRight = () => {
