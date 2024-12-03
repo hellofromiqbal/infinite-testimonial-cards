@@ -1,6 +1,6 @@
 'use client'
 
-import { Box, Button, Paper, Typography, useTheme } from "@mui/material";
+import { Box, Button, Paper, Typography } from "@mui/material";
 import StarIcon from '@mui/icons-material/Star';
 import StarHalfIcon from '@mui/icons-material/StarHalf';
 import { useState, useEffect, useRef } from "react";
