@@ -120,7 +120,7 @@ export default function Home() {
     setTimeout(() => {
       setAnimationDirection(null)
       setDisabledButton(false)
-    }, 500)
+    }, 300)
   };
 
   const goLeft = () => {
@@ -139,7 +139,7 @@ export default function Home() {
     setTimeout(() => {
       setAnimationDirection(null)
       setDisabledButton(false)
-    }, 500)
+    }, 300)
   };
 
   // Swipe handlers
@@ -174,7 +174,7 @@ export default function Home() {
           display: 'flex',
           justifyContent: 'center',
           paddingY: 4,
-          gap: 4,
+          // gap: 4,
         }}
         onTouchStart={handleTouchStart}
         onTouchEnd={handleTouchEnd}
@@ -190,8 +190,9 @@ export default function Home() {
               flexDirection: 'column',
               alignItems: 'center',
               gap: 2,
-              minWidth: { xs: '85%', sm: '39%', md: '27%' },
+              minWidth: { xs: '82%', sm: '45%', md: '27%' },
               borderRadius: 4,
+              marginX: { xs: 1.2, sm: 2 },
             }}
           >
             <Box
@@ -259,6 +260,7 @@ export default function Home() {
           onClick={goLeft}
           disabled={disabledButton}
           sx={{
+            display: { xs: 'none', lg: 'inherit' },
             position: 'absolute',
             left: 0,
             top: '50%',
@@ -277,6 +279,7 @@ export default function Home() {
           onClick={goRight}
           disabled={disabledButton}
           sx={{
+            display: { xs: 'none', lg: 'inherit' },
             position: 'absolute',
             right: 0,
             top: '50%',
