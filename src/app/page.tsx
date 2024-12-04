@@ -93,7 +93,7 @@ export default function Home() {
   // State initialization using the ordered indexes
   const [testimonialIndexes, setTestimonialIndexes] = useState(getOrderedIndexes(testimonials));
   const [animationDirection, setAnimationDirection] = useState<string | null>(null)
-  const [disabledButton, setDisabledButton] = useState(false)
+  const [isAnimating, setIsAnimating] = useState(false)
 
   const touchStartX = useRef(0)
   const touchEndX = useRef(0)
@@ -106,7 +106,7 @@ export default function Home() {
 
   const goRight = () => {
     setAnimationDirection('left')
-    setDisabledButton(true)
+    setIsAnimating(true)
     setTestimonialIndexes((prevIndexes) => {
       const nextIndexes = [
         prevIndexes[1], 
@@ -119,13 +119,13 @@ export default function Home() {
     });
     setTimeout(() => {
       setAnimationDirection(null)
-      setDisabledButton(false)
+      setIsAnimating(false)
     }, 300)
   };
 
   const goLeft = () => {
     setAnimationDirection('right')
-    setDisabledButton(true)
+    setIsAnimating(true)
     setTestimonialIndexes((prevIndexes) => {
       const nextIndexes = [
         (prevIndexes[0] - 1 + testimonials.length) % testimonials.length,
@@ -138,7 +138,7 @@ export default function Home() {
     });
     setTimeout(() => {
       setAnimationDirection(null)
-      setDisabledButton(false)
+      setIsAnimating(false)
     }, 300)
   };
 
@@ -258,7 +258,7 @@ export default function Home() {
         ))}
         <Button
           onClick={goLeft}
-          disabled={disabledButton}
+          disabled={isAnimating}
           sx={{
             display: { xs: 'none', lg: 'inherit' },
             position: 'absolute',
@@ -277,7 +277,7 @@ export default function Home() {
         </Button>
         <Button
           onClick={goRight}
-          disabled={disabledButton}
+          disabled={isAnimating}
           sx={{
             display: { xs: 'none', lg: 'inherit' },
             position: 'absolute',
@@ -294,7 +294,7 @@ export default function Home() {
             }}
           />
         </Button>
-        {disabledButton && (
+        {isAnimating && (
           <Box
             sx={{
               position: 'absolute',
