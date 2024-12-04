@@ -301,7 +301,7 @@ export default function Home() {
             disabled={isAnimating}
             size="small"
             sx={{
-              // display: { xs:'none', lg: 'inherit' },
+              display: { xs:'none', lg: 'inherit' },
               position: 'absolute',
               right: 0,
               top: '50%',
