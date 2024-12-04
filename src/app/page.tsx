@@ -78,7 +78,25 @@ const testimonials = [
 ];
 
 export default function Home() {
-  const [isHuawei, setIsHuawei] = useState(false)
+
+  // States to measure the height of the longest testimonial cards
+  const [showTempContainer, setShowTempContainer] = useState(true)
+  const longestTestimony = testimonials.reduce((longest, current) => 
+    current.testimonialUserTestimony.length > longest.testimonialUserTestimony.length ? current : longest,
+    testimonials[0] // Start with the first testimonial
+  );
+  const longestCardRef = useRef<HTMLDivElement | null>(null);
+  const [height, setHeight] = useState(0);
+
+  useEffect(() => {
+    if (longestCardRef.current) {
+      // Get the height of the component
+      const height = longestCardRef.current.offsetHeight;
+      setHeight(height); // Set the height to the state
+      setShowTempContainer(false)
+    }
+  }, []);
+
   // Function to get the custom order of testimonial indexes
   const getOrderedIndexes = (testimonials: Testimonial[]) => {
     const totalTestimonials = testimonials.length;
@@ -162,18 +180,9 @@ export default function Home() {
     }
   };
 
-  useEffect(() => {
-    const isHuaweiBrowser = navigator.userAgent.toLowerCase().includes('huawei')
-    console.log(isHuaweiBrowser)
-    if (isHuawei) {
-      setIsHuawei(true)
-    }
-  }, [])
-
   return (
     <Box
       sx={{
-        // height: '100vh',
         background: 'linear-gradient(180deg, #00509D 4.46%, #0D2359 100%)',
       }}
     >
@@ -200,6 +209,7 @@ export default function Home() {
               alignItems: 'center',
               gap: 2,
               minWidth: { xs: '82%', sm: '45%', md: '27%' },
+              height: height,
               borderRadius: 4,
               marginX: { xs: 1.2, sm: 2 },
             }}
@@ -270,7 +280,7 @@ export default function Home() {
           disabled={isAnimating}
           size="small"
           sx={{
-            display: { xs: isHuawei ? 'inherit' : 'none', lg: 'inherit' },
+            display: { xs: 'none', lg: 'inherit' },
             position: 'absolute',
             left: 0,
             top: '50%',
@@ -290,7 +300,7 @@ export default function Home() {
           disabled={isAnimating}
           size="small"
           sx={{
-            display: { xs: isHuawei ? 'inherit' : 'none', lg: 'inherit' },
+            display: { xs:'none', lg: 'inherit' },
             position: 'absolute',
             right: 0,
             top: '50%',
@@ -318,6 +328,151 @@ export default function Home() {
           ></Box>
         )}
       </Box>
+
+      {showTempContainer && (
+        <Box
+          sx={{
+            position: 'relative',
+            display: 'flex',
+            justifyContent: 'center',
+            paddingY: 4,
+            // gap: 4,
+          }}
+          onTouchStart={handleTouchStart}
+          onTouchEnd={handleTouchEnd}
+        >
+          {Array.from({ length: 5 }).map((_, index) => (
+            <Paper
+              key={index}
+              elevation={4}
+              ref={index === 0 ? longestCardRef : null}
+              className={animationDirection ? `slide-${animationDirection}` : ''}
+              sx={{
+                padding: { xs: 3, sm: 4 },
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                gap: 2,
+                minWidth: { xs: '82%', sm: '45%', md: '27%' },
+                borderRadius: 4,
+                marginX: { xs: 1.2, sm: 2 },
+              }}
+            >
+              <Box
+                sx={{
+                  borderRadius: 4,
+                  overflow: 'hidden',
+                  bgcolor: 'gray',
+                  width: 80,
+                  height: 80,
+                }}
+              ></Box>
+              <Box
+                sx={{
+                  display: 'flex',
+                  flexDirection: 'column',
+                  textAlign: 'center',
+                }}
+              >
+                <Typography variant="h6" sx={{ fontWeight: 700 }}>{longestTestimony.testimonialUserName}</Typography>
+                <Typography variant="body2">{longestTestimony.testimonialUserLocation}</Typography>
+              </Box>
+              <Typography variant="body1" sx={{ textAlign: 'center' }}>{longestTestimony.testimonialUserTestimony}</Typography>
+              <Box
+                sx={{
+                  display: 'flex',
+                  justifyContent: 'center',
+                  gap: 1,
+                  marginTop: 'auto',
+                }}
+              >
+                <StarIcon
+                  sx={{
+                    fontSize: '29px',
+                    color: '#FDC500'
+                  }}
+                />
+                <StarIcon
+                  sx={{
+                    fontSize: '29px',
+                    color: '#FDC500'
+                  }}
+                />
+                <StarIcon
+                  sx={{
+                    fontSize: '29px',
+                    color: '#FDC500'
+                  }}
+                />
+                <StarIcon
+                  sx={{
+                    fontSize: '29px',
+                    color: '#FDC500'
+                  }}
+                />
+                <StarHalfIcon
+                  sx={{
+                    fontSize: '29px',
+                    color: '#FDC500'
+                  }}
+                />
+              </Box>
+            </Paper>
+          ))}
+          <Button
+            onClick={goLeft}
+            disabled={isAnimating}
+            size="small"
+            sx={{
+              display: { xs: 'none', lg: 'inherit' },
+              position: 'absolute',
+              left: 0,
+              top: '50%',
+              transform: 'translateY(-50%)',
+              bgcolor: '#F1F5FB',
+            }}
+          >
+            <KeyboardArrowLeftOutlinedIcon
+              sx={{
+                fontSize: { xs: '30px', sm: '80px' },
+                color: '#00509D',
+              }}
+            />
+          </Button>
+          <Button
+            onClick={goRight}
+            disabled={isAnimating}
+            size="small"
+            sx={{
+              display: { xs:'none', lg: 'inherit' },
+              position: 'absolute',
+              right: 0,
+              top: '50%',
+              transform: 'translateY(-50%)',
+              bgcolor: '#F1F5FB',
+            }}
+          >
+            <KeyboardArrowRightOutlinedIcon
+              sx={{
+                fontSize: { xs: '30px', sm: '80px' },
+                color: '#00509D',
+              }}
+            />
+          </Button>
+          {isAnimating && (
+            <Box
+              sx={{
+                position: 'absolute',
+                bgcolor: 'transparent',
+                top: 0,
+                left: 0,
+                width: '100%',
+                height: '100%',
+              }}
+            ></Box>
+          )}
+        </Box>
+      )}
     </Box>
   );
 }
