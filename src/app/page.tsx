@@ -212,13 +212,14 @@ export default function Home() {
               height: height,
               borderRadius: 4,
               marginX: { xs: 1.2, sm: 2 },
+              bgcolor: 'transparent',
             }}
           >
             <Box
               sx={{
                 borderRadius: 4,
                 overflow: 'hidden',
-                bgcolor: 'gray',
+                bgcolor: 'transparent',
                 width: 80,
                 height: 80,
               }}
@@ -228,12 +229,13 @@ export default function Home() {
                 display: 'flex',
                 flexDirection: 'column',
                 textAlign: 'center',
+                color: 'transparent'
               }}
             >
               <Typography variant="h6" sx={{ fontWeight: 700 }}>{testimonials[index].testimonialUserName}</Typography>
               <Typography variant="body2">{testimonials[index].testimonialUserLocation}</Typography>
             </Box>
-            <Typography variant="body1" sx={{ textAlign: 'center' }}>{testimonials[index].testimonialUserTestimony}</Typography>
+            <Typography variant="body1" sx={{ textAlign: 'center', color: 'transparent' }}>{testimonials[index].testimonialUserTestimony}</Typography>
             <Box
               sx={{
                 display: 'flex',
@@ -245,31 +247,31 @@ export default function Home() {
               <StarIcon
                 sx={{
                   fontSize: '29px',
-                  color: '#FDC500'
+                  color: 'transparent'
                 }}
               />
               <StarIcon
                 sx={{
                   fontSize: '29px',
-                  color: '#FDC500'
+                  color: 'transparent'
                 }}
               />
               <StarIcon
                 sx={{
                   fontSize: '29px',
-                  color: '#FDC500'
+                  color: 'transparent'
                 }}
               />
               <StarIcon
                 sx={{
                   fontSize: '29px',
-                  color: '#FDC500'
+                  color: 'transparent'
                 }}
               />
               <StarHalfIcon
                 sx={{
                   fontSize: '29px',
-                  color: '#FDC500'
+                  color: 'transparent'
                 }}
               />
             </Box>
