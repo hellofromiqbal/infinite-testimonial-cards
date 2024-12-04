@@ -271,7 +271,7 @@ export default function Home() {
           disabled={isAnimating}
           size="small"
           sx={{
-            // display: { xs: isHuawei ? 'inherit' : 'none', lg: 'inherit' },
+            display: { xs: isHuawei ? 'inherit' : 'none', lg: 'inherit' },
             position: 'absolute',
             left: 0,
             top: '50%',
@@ -291,7 +291,7 @@ export default function Home() {
           disabled={isAnimating}
           size="small"
           sx={{
-            // display: { xs: isHuawei ? 'inherit' : 'none', lg: 'inherit' },
+            display: { xs: isHuawei ? 'inherit' : 'none', lg: 'inherit' },
             position: 'absolute',
             right: 0,
             top: '50%',
