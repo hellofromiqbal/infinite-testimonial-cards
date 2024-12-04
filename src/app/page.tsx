@@ -164,13 +164,13 @@ export default function Home() {
   return (
     <Box
       sx={{
-        height: '100vh',
+        // height: '100vh',
         background: 'linear-gradient(180deg, #00509D 4.46%, #0D2359 100%)',
       }}
     >
       <Box
         sx={{
-          height: { xs: '100vh', sm: '70vh', md: '100vh' },
+          height: { xs: '100svh', sm: '70vh', md: '100vh' },
           position: 'relative',
           display: 'flex',
           justifyContent: 'center',
@@ -261,7 +261,7 @@ export default function Home() {
           onClick={goLeft}
           disabled={isAnimating}
           sx={{
-            // display: { xs: 'none', lg: 'inherit' },
+            display: { xs: 'none', lg: 'inherit' },
             position: 'absolute',
             left: 0,
             top: '50%',
@@ -280,7 +280,7 @@ export default function Home() {
           onClick={goRight}
           disabled={isAnimating}
           sx={{
-            // display: { xs: 'none', lg: 'inherit' },
+            display: { xs: 'none', lg: 'inherit' },
             position: 'absolute',
             right: 0,
             top: '50%',
