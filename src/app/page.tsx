@@ -144,12 +144,10 @@ export default function Home() {
 
   // Swipe handlers
   const handleTouchStart = (e: React.TouchEvent) => {
-    e.preventDefault()
     touchStartX.current = e.touches[0].clientX;
   };
 
   const handleTouchEnd = (e: React.TouchEvent) => {
-    e.preventDefault()
     touchEndX.current = e.changedTouches[0].clientX;
     const swipeThreshold = 50; // Minimum distance to recognize a swipe
     const swipeDistance = touchStartX.current - touchEndX.current;
