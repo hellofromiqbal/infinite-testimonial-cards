@@ -212,14 +212,13 @@ export default function Home() {
               height: height,
               borderRadius: 4,
               marginX: { xs: 1.2, sm: 2 },
-              bgcolor: 'transparent',
             }}
           >
             <Box
               sx={{
                 borderRadius: 4,
                 overflow: 'hidden',
-                bgcolor: 'transparent',
+                bgcolor: 'gray',
                 width: 80,
                 height: 80,
               }}
@@ -229,13 +228,12 @@ export default function Home() {
                 display: 'flex',
                 flexDirection: 'column',
                 textAlign: 'center',
-                color: 'transparent'
               }}
             >
               <Typography variant="h6" sx={{ fontWeight: 700 }}>{testimonials[index].testimonialUserName}</Typography>
               <Typography variant="body2">{testimonials[index].testimonialUserLocation}</Typography>
             </Box>
-            <Typography variant="body1" sx={{ textAlign: 'center', color: 'transparent' }}>{testimonials[index].testimonialUserTestimony}</Typography>
+            <Typography variant="body1" sx={{ textAlign: 'center' }}>{testimonials[index].testimonialUserTestimony}</Typography>
             <Box
               sx={{
                 display: 'flex',
@@ -247,31 +245,31 @@ export default function Home() {
               <StarIcon
                 sx={{
                   fontSize: '29px',
-                  color: 'transparent'
+                  color: '#FDC500'
                 }}
               />
               <StarIcon
                 sx={{
                   fontSize: '29px',
-                  color: 'transparent'
+                  color: '#FDC500'
                 }}
               />
               <StarIcon
                 sx={{
                   fontSize: '29px',
-                  color: 'transparent'
+                  color: '#FDC500'
                 }}
               />
               <StarIcon
                 sx={{
                   fontSize: '29px',
-                  color: 'transparent'
+                  color: '#FDC500'
                 }}
               />
               <StarHalfIcon
                 sx={{
                   fontSize: '29px',
-                  color: 'transparent'
+                  color: '#FDC500'
                 }}
               />
             </Box>
@@ -302,7 +300,7 @@ export default function Home() {
           disabled={isAnimating}
           size="small"
           sx={{
-            display: { xs:'none', lg: 'inherit' },
+            // display: { xs:'none', lg: 'inherit' },
             position: 'absolute',
             right: 0,
             top: '50%',
@@ -346,7 +344,7 @@ export default function Home() {
           {Array.from({ length: 5 }).map((_, index) => (
             <Paper
               key={index}
-              elevation={4}
+              elevation={0}
               ref={index === 0 ? longestCardRef : null}
               className={animationDirection ? `slide-${animationDirection}` : ''}
               sx={{
@@ -358,13 +356,14 @@ export default function Home() {
                 minWidth: { xs: '82%', sm: '45%', md: '27%' },
                 borderRadius: 4,
                 marginX: { xs: 1.2, sm: 2 },
+                bgcolor: 'transparent',
               }}
             >
               <Box
                 sx={{
                   borderRadius: 4,
                   overflow: 'hidden',
-                  bgcolor: 'gray',
+                  bgcolor: 'transparent',
                   width: 80,
                   height: 80,
                 }}
@@ -374,12 +373,13 @@ export default function Home() {
                   display: 'flex',
                   flexDirection: 'column',
                   textAlign: 'center',
+                  color: 'transparent',
                 }}
               >
                 <Typography variant="h6" sx={{ fontWeight: 700 }}>{longestTestimony.testimonialUserName}</Typography>
                 <Typography variant="body2">{longestTestimony.testimonialUserLocation}</Typography>
               </Box>
-              <Typography variant="body1" sx={{ textAlign: 'center' }}>{longestTestimony.testimonialUserTestimony}</Typography>
+              <Typography variant="body1" sx={{ textAlign: 'center', color: 'transparent' }}>{longestTestimony.testimonialUserTestimony}</Typography>
               <Box
                 sx={{
                   display: 'flex',
@@ -391,31 +391,31 @@ export default function Home() {
                 <StarIcon
                   sx={{
                     fontSize: '29px',
-                    color: '#FDC500'
+                    color: 'transparent'
                   }}
                 />
                 <StarIcon
                   sx={{
                     fontSize: '29px',
-                    color: '#FDC500'
+                    color: 'transparent'
                   }}
                 />
                 <StarIcon
                   sx={{
                     fontSize: '29px',
-                    color: '#FDC500'
+                    color: 'transparent'
                   }}
                 />
                 <StarIcon
                   sx={{
                     fontSize: '29px',
-                    color: '#FDC500'
+                    color: 'transparent'
                   }}
                 />
                 <StarHalfIcon
                   sx={{
                     fontSize: '29px',
-                    color: '#FDC500'
+                    color: 'transparent'
                   }}
                 />
               </Box>
