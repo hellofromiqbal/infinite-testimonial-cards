@@ -78,6 +78,7 @@ const testimonials = [
 ];
 
 export default function Home() {
+  const isHuaweiBrowser = navigator.userAgent.toLowerCase().includes('huawei')
   // Function to get the custom order of testimonial indexes
   const getOrderedIndexes = (testimonials: Testimonial[]) => {
     const totalTestimonials = testimonials.length;
@@ -261,7 +262,7 @@ export default function Home() {
           onClick={goLeft}
           disabled={isAnimating}
           sx={{
-            display: { xs: 'none', lg: 'inherit' },
+            display: { xs: isHuaweiBrowser ? 'inherit' : 'none', lg: 'inherit' },
             position: 'absolute',
             left: 0,
             top: '50%',
@@ -280,7 +281,7 @@ export default function Home() {
           onClick={goRight}
           disabled={isAnimating}
           sx={{
-            display: { xs: 'none', lg: 'inherit' },
+            display: { xs: isHuaweiBrowser ? 'inherit' : 'none', lg: 'inherit' },
             position: 'absolute',
             right: 0,
             top: '50%',
