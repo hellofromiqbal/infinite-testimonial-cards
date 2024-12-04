@@ -186,148 +186,150 @@ export default function Home() {
         background: 'linear-gradient(180deg, #00509D 4.46%, #0D2359 100%)',
       }}
     >
-      <Box
-        sx={{
-          position: 'relative',
-          display: 'flex',
-          justifyContent: 'center',
-          paddingY: 4,
-          // gap: 4,
-        }}
-        onTouchStart={handleTouchStart}
-        onTouchEnd={handleTouchEnd}
-      >
-        {testimonialIndexes.map((index) => (
-          <Paper
-            key={index}
-            elevation={4}
-            className={animationDirection ? `slide-${animationDirection}` : ''}
-            sx={{
-              padding: { xs: 3, sm: 4 },
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'center',
-              gap: 2,
-              minWidth: { xs: '82%', sm: '45%', md: '27%' },
-              height: height,
-              borderRadius: 4,
-              marginX: { xs: 1.2, sm: 2 },
-            }}
-          >
-            <Box
+      {!showTempContainer && (
+        <Box
+          sx={{
+            position: 'relative',
+            display: 'flex',
+            justifyContent: 'center',
+            paddingY: 4,
+            // gap: 4,
+          }}
+          onTouchStart={handleTouchStart}
+          onTouchEnd={handleTouchEnd}
+        >
+          {testimonialIndexes.map((index) => (
+            <Paper
+              key={index}
+              elevation={4}
+              className={animationDirection ? `slide-${animationDirection}` : ''}
               sx={{
-                borderRadius: 4,
-                overflow: 'hidden',
-                bgcolor: 'gray',
-                width: 80,
-                height: 80,
-              }}
-            ></Box>
-            <Box
-              sx={{
+                padding: { xs: 3, sm: 4 },
                 display: 'flex',
                 flexDirection: 'column',
-                textAlign: 'center',
+                alignItems: 'center',
+                gap: 2,
+                minWidth: { xs: '82%', sm: '45%', md: '27%' },
+                height: height,
+                borderRadius: 4,
+                marginX: { xs: 1.2, sm: 2 },
               }}
             >
-              <Typography variant="h6" sx={{ fontWeight: 700 }}>{testimonials[index].testimonialUserName}</Typography>
-              <Typography variant="body2">{testimonials[index].testimonialUserLocation}</Typography>
-            </Box>
-            <Typography variant="body1" sx={{ textAlign: 'center' }}>{testimonials[index].testimonialUserTestimony}</Typography>
+              <Box
+                sx={{
+                  borderRadius: 4,
+                  overflow: 'hidden',
+                  bgcolor: 'gray',
+                  width: 80,
+                  height: 80,
+                }}
+              ></Box>
+              <Box
+                sx={{
+                  display: 'flex',
+                  flexDirection: 'column',
+                  textAlign: 'center',
+                }}
+              >
+                <Typography variant="h6" sx={{ fontWeight: 700 }}>{testimonials[index].testimonialUserName}</Typography>
+                <Typography variant="body2">{testimonials[index].testimonialUserLocation}</Typography>
+              </Box>
+              <Typography variant="body1" sx={{ textAlign: 'center' }}>{testimonials[index].testimonialUserTestimony}</Typography>
+              <Box
+                sx={{
+                  display: 'flex',
+                  justifyContent: 'center',
+                  gap: 1,
+                  marginTop: 'auto',
+                }}
+              >
+                <StarIcon
+                  sx={{
+                    fontSize: '29px',
+                    color: '#FDC500'
+                  }}
+                />
+                <StarIcon
+                  sx={{
+                    fontSize: '29px',
+                    color: '#FDC500'
+                  }}
+                />
+                <StarIcon
+                  sx={{
+                    fontSize: '29px',
+                    color: '#FDC500'
+                  }}
+                />
+                <StarIcon
+                  sx={{
+                    fontSize: '29px',
+                    color: '#FDC500'
+                  }}
+                />
+                <StarHalfIcon
+                  sx={{
+                    fontSize: '29px',
+                    color: '#FDC500'
+                  }}
+                />
+              </Box>
+            </Paper>
+          ))}
+          <Button
+            onClick={goLeft}
+            disabled={isAnimating}
+            size="small"
+            sx={{
+              display: { xs: 'none', lg: 'inherit' },
+              position: 'absolute',
+              left: 0,
+              top: '50%',
+              transform: 'translateY(-50%)',
+              bgcolor: '#F1F5FB',
+            }}
+          >
+            <KeyboardArrowLeftOutlinedIcon
+              sx={{
+                fontSize: { xs: '30px', sm: '80px' },
+                color: '#00509D',
+              }}
+            />
+          </Button>
+          <Button
+            onClick={goRight}
+            disabled={isAnimating}
+            size="small"
+            sx={{
+              // display: { xs:'none', lg: 'inherit' },
+              position: 'absolute',
+              right: 0,
+              top: '50%',
+              transform: 'translateY(-50%)',
+              bgcolor: '#F1F5FB',
+            }}
+          >
+            <KeyboardArrowRightOutlinedIcon
+              sx={{
+                fontSize: { xs: '30px', sm: '80px' },
+                color: '#00509D',
+              }}
+            />
+          </Button>
+          {isAnimating && (
             <Box
               sx={{
-                display: 'flex',
-                justifyContent: 'center',
-                gap: 1,
-                marginTop: 'auto',
+                position: 'absolute',
+                bgcolor: 'transparent',
+                top: 0,
+                left: 0,
+                width: '100%',
+                height: '100%',
               }}
-            >
-              <StarIcon
-                sx={{
-                  fontSize: '29px',
-                  color: '#FDC500'
-                }}
-              />
-              <StarIcon
-                sx={{
-                  fontSize: '29px',
-                  color: '#FDC500'
-                }}
-              />
-              <StarIcon
-                sx={{
-                  fontSize: '29px',
-                  color: '#FDC500'
-                }}
-              />
-              <StarIcon
-                sx={{
-                  fontSize: '29px',
-                  color: '#FDC500'
-                }}
-              />
-              <StarHalfIcon
-                sx={{
-                  fontSize: '29px',
-                  color: '#FDC500'
-                }}
-              />
-            </Box>
-          </Paper>
-        ))}
-        <Button
-          onClick={goLeft}
-          disabled={isAnimating}
-          size="small"
-          sx={{
-            display: { xs: 'none', lg: 'inherit' },
-            position: 'absolute',
-            left: 0,
-            top: '50%',
-            transform: 'translateY(-50%)',
-            bgcolor: '#F1F5FB',
-          }}
-        >
-          <KeyboardArrowLeftOutlinedIcon
-            sx={{
-              fontSize: { xs: '30px', sm: '80px' },
-              color: '#00509D',
-            }}
-          />
-        </Button>
-        <Button
-          onClick={goRight}
-          disabled={isAnimating}
-          size="small"
-          sx={{
-            // display: { xs:'none', lg: 'inherit' },
-            position: 'absolute',
-            right: 0,
-            top: '50%',
-            transform: 'translateY(-50%)',
-            bgcolor: '#F1F5FB',
-          }}
-        >
-          <KeyboardArrowRightOutlinedIcon
-            sx={{
-              fontSize: { xs: '30px', sm: '80px' },
-              color: '#00509D',
-            }}
-          />
-        </Button>
-        {isAnimating && (
-          <Box
-            sx={{
-              position: 'absolute',
-              bgcolor: 'transparent',
-              top: 0,
-              left: 0,
-              width: '100%',
-              height: '100%',
-            }}
-          ></Box>
-        )}
-      </Box>
+            ></Box>
+          )}
+        </Box>
+      )}
 
       {showTempContainer && (
         <Box
