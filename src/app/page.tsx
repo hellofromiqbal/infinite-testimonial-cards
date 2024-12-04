@@ -78,7 +78,7 @@ const testimonials = [
 ];
 
 export default function Home() {
-  const isHuaweiBrowser = navigator.userAgent.toLowerCase().includes('huawei')
+  const [isHuawei, setIsHuawei] = useState(false)
   // Function to get the custom order of testimonial indexes
   const getOrderedIndexes = (testimonials: Testimonial[]) => {
     const totalTestimonials = testimonials.length;
@@ -161,6 +161,14 @@ export default function Home() {
       }
     }
   };
+
+  useEffect(() => {
+    const isHuaweiBrowser = navigator.userAgent.toLowerCase().includes('huawei')
+    console.log(isHuaweiBrowser)
+    if (isHuawei) {
+      setIsHuawei(true)
+    }
+  }, [])
 
   return (
     <Box
@@ -261,38 +269,40 @@ export default function Home() {
         <Button
           onClick={goLeft}
           disabled={isAnimating}
+          size="small"
           sx={{
-            display: { xs: isHuaweiBrowser ? 'inherit' : 'none', lg: 'inherit' },
+            // display: { xs: isHuawei ? 'inherit' : 'none', lg: 'inherit' },
             position: 'absolute',
             left: 0,
             top: '50%',
             transform: 'translateY(-50%)',
-            bgcolor: 'gray',
+            bgcolor: '#F1F5FB',
           }}
         >
           <KeyboardArrowLeftOutlinedIcon
             sx={{
-              fontSize: '80px',
-              color: '#FDC500',
+              fontSize: { xs: '30px', sm: '80px' },
+              color: '#00509D',
             }}
           />
         </Button>
         <Button
           onClick={goRight}
           disabled={isAnimating}
+          size="small"
           sx={{
-            display: { xs: isHuaweiBrowser ? 'inherit' : 'none', lg: 'inherit' },
+            // display: { xs: isHuawei ? 'inherit' : 'none', lg: 'inherit' },
             position: 'absolute',
             right: 0,
             top: '50%',
             transform: 'translateY(-50%)',
-            bgcolor: 'gray',
+            bgcolor: '#F1F5FB',
           }}
         >
           <KeyboardArrowRightOutlinedIcon
             sx={{
-              fontSize: '80px',
-              color: '#FDC500',
+              fontSize: { xs: '30px', sm: '80px' },
+              color: '#00509D',
             }}
           />
         </Button>
