@@ -19,25 +19,25 @@ const testimonials = [
     testimonialUserImg: "edTestimonialUser1",
     testimonialUserName: "Afiq",
     testimonialUserLocation: "Kelantan, Malaysia",
-    testimonialUserTestimony: "Edbot.ai offers a structured approach with an intuitive interface, making learning effortless. Additionally, the community support and feedback mechanisms keep me motivated and accountable."
+    testimonialUserTestimony: "Edbot’s user-friendly design, diverse courses, and rewarding system make learning more engaging. Earning points and exchanging them for rewards, such as program vouchers, motivates students to stay active and committed to their learning journey."
   },
   {
     testimonialUserImg: "edTestimonialUser2",
     testimonialUserName: "Afiqah",
     testimonialUserLocation: "Selangor, Malaysia",
-    testimonialUserTestimony: "Edbot.ai offers a structured approach with an intuitive interface, making learning effortless. Additionally, the community support and feedback mechanisms keep me motivated and accountable."
+    testimonialUserTestimony: "Edbot offers a variety of games that let me improve my English in multiple ways. Grammar quizzes, listening tests, reading comprehension, and more help me gain deeper knowledge and understanding on a profound level."
   },
   {
     testimonialUserImg: "edTestimonialUser3",
     testimonialUserName: "Aiman",
     testimonialUserLocation: "Selangor, Malaysia",
-    testimonialUserTestimony: "Edbot.ai offers a structured approach with an intuitive interface, making learning effortless. Additionally, the community support and feedback mechanisms keep me motivated and accountable."
+    testimonialUserTestimony: "As a student, finding effective study methods can be challenging, but Edbot.ai has completely transformed my learning experience. The platform’s AI-driven features offer personalized study plans that cater to my individual needs, making it easier to grasp difficult topics."
   },
   {
     testimonialUserImg: "edTestimonialUser4",
     testimonialUserName: "Ayuba Joida",
     testimonialUserLocation: "Gombe State, Nigeria",
-    testimonialUserTestimony: "Edbot.ai offers a structured approach with an intuitive interface, making learning effortless. Additionally, the community support and feedback mechanisms keep me motivated and accountable."
+    testimonialUserTestimony: "My experience with Edbot.ai is far more engaging than learning on Telegram. The platform allows me to learn at my own pace, without feeling rushed."
   },
   {
     testimonialUserImg: "edTestimonialUser5",
@@ -49,31 +49,31 @@ const testimonials = [
     testimonialUserImg: "edTestimonialUser6",
     testimonialUserName: "Nurul Azizah",
     testimonialUserLocation: "Bekasi, Indonesia",
-    testimonialUserTestimony: "Edbot.ai offers a structured approach with an intuitive interface, making learning effortless. Additionally, the community support and feedback mechanisms keep me motivated and accountable."
+    testimonialUserTestimony: "Learning with Edbot.ai has been incredibly helpful for building my English foundation as a beginner. I love the repetition system—it makes practicing and memorizing so effective. Collecting diamonds and coins adds a fun challenge to the experience! My goal is to study abroad next year and take the TOEFL test, and Edbot is helping me work toward that dream. A huge thanks to Edbot, the community, and everyone involved for supporting my growth journey!"
   },
   {
     testimonialUserImg: "edTestimonialUser7",
     testimonialUserName: "Oktaviani Ndale",
     testimonialUserLocation: "Kupang, Indonesia",
-    testimonialUserTestimony: "Edbot.ai offers a structured approach with an intuitive interface, making learning effortless. Additionally, the community support and feedback mechanisms keep me motivated and accountable."
+    testimonialUserTestimony: "Senang sekali bisa belajar di Edbot.ai! Hal yang paling saya suka adalah pola soal yang repetitif, sangat membantu saya memahami materi dengan lebih baik. Ditambah lagi, koin di Edbot sekarang bisa ditukar hadiah dan jadi tiket untuk ikut speaking practice."
   },
   {
     testimonialUserImg: "edTestimonialUser8",
     testimonialUserName: "Sami Arti",
     testimonialUserLocation: "Tegal, Indonesia",
-    testimonialUserTestimony: "Edbot.ai offers a structured approach with an intuitive interface, making learning effortless. Additionally, the community support and feedback mechanisms keep me motivated and accountable."
+    testimonialUserTestimony: "The latest update on Edbot.ai is impressive! Its modern, intuitive design and upgraded features make learning more engaging and accessible. Clear explanations boost understanding, and the slow mode for listening and speaking is perfect for beginners. Overall, it’s an excellent platform for gradual skill improvement."
   },
   {
     testimonialUserImg: "edTestimonialUser9",
     testimonialUserName: "Veliana",
     testimonialUserLocation: "Bandung, Indonesia",
-    testimonialUserTestimony: "Edbot.ai offers a structured approach with an intuitive interface, making learning effortless. Additionally, the community support and feedback mechanisms keep me motivated and accountable."
+    testimonialUserTestimony: "Edbot.ai telah menjadi mitra berharga dalam meningkatkan literasi di sekolah kami. Platform yang mudah digunakan ini menyediakan berbagai konten, mulai dari bahan bacaan hingga latihan interaktif dan video, membuat pembelajaran lebih menyenangkan. Laporan kemajuan membantu memantau perkembangan siswa."
   },
   {
     testimonialUserImg: "edTestimonialUser10",
     testimonialUserName: "Victor Nwaruwe Chukwuebuka",
     testimonialUserLocation: "Nigeria, West Africa",
-    testimonialUserTestimony: "Edbot.ai offers a structured approach with an intuitive interface, making learning effortless. Additionally, the community support and feedback mechanisms keep me motivated and accountable."
+    testimonialUserTestimony: "Edbot.ai is a fantastic educational tool! Its interactive lessons, personalized learning paths, and real-world examples make complex concepts easy to understand. The user-friendly interface and expert-led content make it stand out. It’s perfect for both students and professionals looking to upskill or reskill."
   }
 ];
 
@@ -170,6 +170,7 @@ export default function Home() {
     >
       <Box
         sx={{
+          height: { xs: '100vh', sm: '70vh', md: '100vh' },
           position: 'relative',
           display: 'flex',
           justifyContent: 'center',
@@ -260,7 +261,7 @@ export default function Home() {
           onClick={goLeft}
           disabled={isAnimating}
           sx={{
-            display: { xs: 'none', lg: 'inherit' },
+            // display: { xs: 'none', lg: 'inherit' },
             position: 'absolute',
             left: 0,
             top: '50%',
@@ -279,7 +280,7 @@ export default function Home() {
           onClick={goRight}
           disabled={isAnimating}
           sx={{
-            display: { xs: 'none', lg: 'inherit' },
+            // display: { xs: 'none', lg: 'inherit' },
             position: 'absolute',
             right: 0,
             top: '50%',
