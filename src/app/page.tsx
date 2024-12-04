@@ -179,7 +179,6 @@ export default function Home() {
     >
       <Box
         sx={{
-          height: { xs: '100svh', sm: '70vh', md: '100vh' },
           position: 'relative',
           display: 'flex',
           justifyContent: 'center',
